@@ -1,6 +1,6 @@
 from flask import render_template
 from csv import reader
-from src import app
+from main import app
 
 csvPath = "./data/data.csv"
 
