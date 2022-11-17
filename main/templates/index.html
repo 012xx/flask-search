@@ -1,2 +1,19 @@
-<h1>render_templateテスト</h>
-<p>成功しました！</p>
+{% extends "base.html" %} {% block content %} {% if data_lists %}
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>経過日数</th>
+      <th>価格</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for list in data_lists %}
+    <tr>
+      <td>{{ list[0] }}</td>
+      <td>{{ list[1] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %} {% endblock %}

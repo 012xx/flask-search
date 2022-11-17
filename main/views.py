@@ -1,6 +1,7 @@
-from flask import render_template
+from flask import render_template, request, redirect, url_for, send_from_directory
 from csv import reader
 from main import app
+import pandas as pd
 
 csvPath = "./data/data.csv"
 
@@ -13,9 +14,16 @@ csvPath = "./data/data.csv"
 #     # print the rows
 #     print(i)
 
-@app.route("/")
+@app.route("/",methods=['GET', 'POST'])
 def index():
-  return render_template('index.html')
+  # CSVファイルをPandasでロード
+  df = pd.read_csv(csvPath)
+
+  # データフレームをリストに変換してテンプレートに渡す
+  return render_template('index.html',title="これはタイトルです",data_lists=df.values.tolist())
+
+# def create_table():
+
 
 # debug code
 if __name__=='views':
