@@ -3,31 +3,17 @@ from csv import reader
 from main import app
 import pandas as pd
 
-csvPath = "./data/data.csv"
-
-# open file
-# with open(csvPath,"r") as searchTarget:
-#   # pass the file object reader()
-#   reader = reader(searchTarget)
-#   # do this for all the rows
-#   for i in reader:
-#     # print the rows
-#     print(i)
-
-@app.route("/",methods=['GET', 'POST'])
+@app.route('/',methods=['GET', 'POST'])
 def index():
-  # CSVファイルをPandasでロード
-  df = pd.read_csv(csvPath)
+  if request.method == 'GET':
+    return render_template('search.html')
+  elif request.method == 'POST':
+    poststr = request.form.get("searching")
+    return render_template('search.html', poststr = poststr)
 
-  # データフレームをリストに変換してテンプレートに渡す
-  return render_template('index.html',title="これはタイトルです",data_lists=df.values.tolist())
-
-# def create_table():
-
-
-# debug code
-if __name__=='views':
-    app.run(debug=True)
+if __name__ == "__main__":
+  app.debug = True
+  app.run(host='0.0.0.0')
 
 
 
