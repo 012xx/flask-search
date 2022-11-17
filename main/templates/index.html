@@ -3,15 +3,20 @@
 <table class="table">
   <thead class="thead-light">
     <tr>
-      <th>経過日数</th>
-      <th>価格</th>
+      <th>研究課題名</th>
+      <th>研究代表者</th>
+      <th>研究分担者</th>
+      <th>キーワード</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     {% for list in data_lists %}
     <tr>
       <td>{{ list[0] }}</td>
-      <td>{{ list[1] }}</td>
+      <td>{{ list[3] }}</td>
+      <td>{{ list[4] }}</td>
+      <td>{{ list[5] }}</td>
     </tr>
     {% endfor %}
   </tbody>
