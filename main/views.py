@@ -8,12 +8,12 @@ def index():
   if request.method == 'GET':
     return render_template('search.html')
   elif request.method == 'POST':
-    poststr = request.form.get("searching")
+    poststr = request.form.get("searchWord")
     return render_template('search.html', poststr = poststr)
 
 if __name__ == "__main__":
   app.debug = True
   app.run(host='0.0.0.0')
 
-
+## TODO: 教授の詳細URL飛ぶとか
 
