@@ -8,8 +8,16 @@ def index():
   if request.method == 'GET':
     return render_template('search.html')
   elif request.method == 'POST':
-    poststr = request.form.get("searchWord")
-    return render_template('search.html', poststr = poststr)
+    searchWord = request.form.get("searchWord")
+    return render_template('search.html', searchWord = searchWord)
+    # with open("./data/data.csv","r") as CSVfile:
+      # reader = reader(CSVfile)
+      # result = []
+      # for row in reader:
+      #   if poststr is row:
+      #     result.append(row)
+      #     return render_template('search.html', result = result)
+
 
 if __name__ == "__main__":
   app.debug = True
