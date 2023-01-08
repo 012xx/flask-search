@@ -2,14 +2,25 @@ from flask import render_template, request, redirect, url_for, send_from_directo
 from csv import reader
 from main import app
 import pandas as pd
+csvPath = "./data/data.csv"
 
-@app.route('/',methods=['GET', 'POST'])
+
+@app.route("/all",methods=['GET', 'POST'])
 def index():
+  # CSVファイルをPandasでロード
+  df = pd.read_csv(csvPath)
+
+  # データフレームをリストに変換してテンプレートに渡す
+  return render_template('index.html',data_lists=df.values.tolist())
+
+@app.route("/search",methods=['GET', 'POST'])
+def search():
   if request.method == 'GET':
     return render_template('search.html')
   elif request.method == 'POST':
     searchWord = request.form.get("searchWord")
     return render_template('search.html', searchWord = searchWord)
+
     # with open("./data/data.csv","r") as CSVfile:
       # reader = reader(CSVfile)
       # result = []
