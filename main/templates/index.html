@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block content %} {% if data_lists %}
+{% extends "base.html" %} {% block content %}
 
 <form action="/" method="get">
   <input type="text" name="search" value="{{searchWord}}" />
@@ -16,14 +16,14 @@
     </tr>
   </thead>
   <tbody>
-    {% for list in data_lists %}
+    {% for data in data_list %}
     <tr>
-      <td>{{ list[0] }}</td>
-      <td>{{ list[3] }}</td>
-      <td>{{ list[4] }}</td>
-      <td>{{ list[5] }}</td>
+      <td>{{ data[0] }}</td>
+      <td>{{ data[3] }}</td>
+      <td>{{ data[4] }}</td>
+      <td>{{ data[5] }}</td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
-{% endif %} {% endblock %}
+{% endblock %}

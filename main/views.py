@@ -2,21 +2,32 @@ from flask import render_template, request, redirect, url_for, send_from_directo
 from csv import reader
 from main import app
 import pandas as pd
+
 csvPath = "./data/data.csv"
 
 @app.route("/",methods=['GET'])
 def index():
   # データを取得する
   df = pd.read_csv(csvPath)
-  data_lists = df.values.tolist()
 
   # queryがある場合には上のデータからqueryでfilterかけてデータを削除する
   searchWord = request.args.get('search', '')
-  if searchWord:
-  for i, data in enumerate(data_lists):
-    # もしdata要素にsearchWordがなければ、i番目の要素を削除する
+  csv_list = df.values.tolist()
 
-  return render_template('index.html', searchWord=searchWord, data_lists=data_lists)
+  data_list = []
+
+  if searchWord:
+    for data in csv_list:
+      # もしdata要素にsearchWordがなければ、i番目の要素を削除する
+      searchData = [data[0], data[3], data[4], data[5]]
+      for item in searchData:
+        if type(item) is str and searchWord in item:
+          data_list.append(data)
+          break
+  else:
+    data_list = csv_list
+
+  return render_template('index.html', searchWord=searchWord, data_list=data_list)
 
 # CSVファイルの全データを出力するpath
 @app.route("/all",methods=['GET'])
