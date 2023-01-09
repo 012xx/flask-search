@@ -1,17 +1,23 @@
 {% extends "base.html" %} {% block content %}
-
+<span style="margin: 10px"></span>
 <form action="/" method="get">
-  <input type="text" name="search" value="{{searchWord}}" />
+  <input
+    type="text"
+    name="search"
+    value="{{searchWord}}"
+    placeholder="キーワードを入力"
+    style="margin-left: 20px"
+  />
   <input type="submit" value="検索" />
 </form>
-
+<span style="margin: 10px"></span>
 <table class="table">
   <thead class="thead-light">
     <tr>
       <th>所属</th>
       <th>教授名</th>
-      <th>研究分野</th>
-      <th>主な担当科目</th>
+      <th style="width: 250px">研究分野</th>
+      <th style="width: 350px">主な担当科目</th>
       <th>研究室</th>
       <th>関連ページ</th>
       <th></th>
