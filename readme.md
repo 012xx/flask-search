@@ -25,3 +25,8 @@
 <img src="https://user-images.githubusercontent.com/79149878/211246674-0a2a12d3-3626-45ab-a5cc-49ea4f7c2fe1.png" width="600">
 6. 検索したいワードを入力して、利用する
 <hr/>
+
+## 実装の工夫点
+
+‐ Jupyter Notebookではなく、Webサイトを構築したことで利用者でも利用しやすい見た目に
+- 検索前に全てのデータを表示することで、どのようなデータが検索対象なのかわかりやすい
