@@ -19,7 +19,7 @@ def index():
   if searchWord:
     for data in csv_list:
       # もしdata要素にsearchWordがなければ、i番目の要素を削除する
-      searchData = [data[0], data[3], data[4], data[5]]
+      searchData = [data[0], data[1],data[2],data[3], data[4], data[5]]
       for item in searchData:
         if type(item) is str and searchWord in item:
           data_list.append(data)

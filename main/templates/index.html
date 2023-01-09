@@ -8,10 +8,12 @@
 <table class="table">
   <thead class="thead-light">
     <tr>
-      <th>研究課題名</th>
-      <th>研究代表者</th>
-      <th>研究分担者</th>
-      <th>キーワード</th>
+      <th>所属</th>
+      <th>教授名</th>
+      <th>研究分野</th>
+      <th>主な担当科目</th>
+      <th>研究室</th>
+      <th>関連ページ</th>
       <th></th>
     </tr>
   </thead>
@@ -19,6 +21,8 @@
     {% for data in data_list %}
     <tr>
       <td>{{ data[0] }}</td>
+      <td>{{ data[1] }}</td>
+      <td>{{ data[2] }}</td>
       <td>{{ data[3] }}</td>
       <td>{{ data[4] }}</td>
       <td>{{ data[5] }}</td>
